@@ -1,0 +1,438 @@
+To ensure that your website content is well-organized and visible on mobile devices and tablets, you can use media queries to adjust the layout for different screen sizes. Below is the updated CSS code with added media queries for responsiveness:
+
+/* Reset and General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    line-height: 1.6;
+    background-color: transparent;
+    margin: 0;
+    background-image: url("\grunge-brick-wall-background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#main-content {
+    display: none;
+}
+
+/* Main content styles here */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark background */
+    color: #fff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Section Styles */
+.section {
+    padding: 50px 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent light background */
+}
+
+.section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: linear-gradient(to right, #553c9a 45%, #ee4b2b);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.section p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.hero {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+}
+
+.hero h1 {
+    font-size: 3em;
+}
+
+.hero p {
+    font-size: 1.5em;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+/* Category Section Styles */
+.category {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent light background */
+    color: #333;
+}
+
+.category h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: linear-gradient(to right, #553c9a 45%, #ee4b2b);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.grid-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent light background */
+}
+
+.category-description {
+    flex: 1;
+    text-align: left;
+    margin-top: 10%;
+    transition: ease-in;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    flex: 2;
+}
+
+.grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Slideshow Styles */
+.animated-slideshow {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Adjust height as needed */
+    overflow: hidden;
+}
+
+.animated-slideshow .slide {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.animated-slideshow .slide.active {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.slideshow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+}
+
+.slideshow {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.slideshow img {
+    position: relative;
+    top: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slideshow img:first-child {
+    opacity: 1;
+}
+
+/* Grid 8 Styles for Category 3 */
+.grid-8 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Full Image Overlay Styles */
+.full-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.full-image-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* Video Section Styles */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Contact Section Styles */
+.contact {
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark background */
+    color: #fff;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+#contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contact-form label {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+#contact-form button {
+    background-color: #ffd700;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: #e0b700;
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent dark background */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+
+/* Tablets */
+@media (max-width: 991px) {
+    .grid-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slideshow-container {
+        height: 400px; /* Adjust height as needed */
+    }
+
+    .animated-slideshow {
+        height: 400px; /* Adjust height as needed */
+    }
+
+    .section h2, .category h2 {
+        font-size: 1.5em;
+    }
+
+    .section p, .hero p {
+        font-size: 1em;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 767px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .grid-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .category-description {
+
+
+        margin-top: 5%;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slideshow-container {
+        height: 300px; /* Adjust height as needed */
+    }
+
+    .animated-slideshow {
+        height: 300px; /* Adjust height as needed */
+    }
+
+    .section h2, .category h2 {
+        font-size: 1.2em;
+    }
+
+    .section p, .hero p {
+        font-size: 0.9em;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .contact h2 {
+        font-size: 2em;
+    }
+
+    .full-image-overlay img {
+        max-width: 80%;
+        max-height: 80%;
+    }
+}
